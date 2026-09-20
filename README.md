@@ -26,70 +26,40 @@ The AWS infrastructure is designed around separate application and database laye
 * Manage application source code using Git and GitHub
 
 ---
+## 📘 Project Documentation
+
+Explore the complete project documentation covering the AWS architecture, VPC networking, EC2 infrastructure, Application Load Balancer, Auto Scaling, RDS, S3, CloudWatch, SNS, and deployment details.
+
+📄 **[View Complete AWS Project Documentation](QuickLoan_AWS_Cloud_Portfolio.pdf)**
 
 # 🏗️ AWS Architecture
 
-```text
-                              Internet Users
-                                    │
-                                    ▼
-                           ┌─────────────────┐
-                           │   Application   │
-                           │      URL        │
-                           └────────┬────────┘
-                                    │
-                                    ▼
-                         ┌──────────────────────┐
-                         │ Application Load     │
-                         │      Balancer        │
-                         │        (ALB)         │
-                         └──────────┬───────────┘
-                                    │
-                           ┌────────┴────────┐
-                           │                 │
-                           ▼                 ▼
-                    ┌─────────────┐   ┌─────────────┐
-                    │    EC2      │   │    EC2      │
-                    │ Application │   │ Application │
-                    │   Server    │   │   Server    │
-                    │ Nginx/PHP   │   │ Nginx/PHP   │
-                    └──────┬──────┘   └──────┬──────┘
-                           │                 │
-                           └────────┬────────┘
-                                    │
-                                    ▼
-                         ┌─────────────────────┐
-                         │     Amazon RDS      │
-                         │       MySQL         │
-                         │  QuickLoan Database │
-                         └─────────────────────┘
 
+## 🏗️ AWS Architecture
 
-              ┌───────────────────────────────┐
-              │          Amazon S3            │
-              │     Application Images       │
-              └───────────────────────────────┘
+The following architecture represents the deployed QuickLoan AWS infrastructure, including VPC networking, Application Load Balancer, Auto Scaling, EC2 application servers, Amazon RDS, Amazon S3, CloudWatch monitoring, and SNS notifications.
 
+<p align="center">
+  <img src="QuickLoan_AWS_Cloud_Architecture.png" alt="QuickLoan AWS Cloud Architecture" width="100%">
+</p>
 
-              ┌───────────────────────────────┐
-              │       Amazon CloudWatch       │
-              │     Metrics & Monitoring      │
-              └───────────────┬───────────────┘
-                              │
-                              ▼
-              ┌───────────────────────────────┐
-              │          Amazon SNS            │
-              │       Notifications            │
-              └───────────────────────────────┘
+### Architecture Highlights
 
-
-              ┌───────────────────────────────┐
-              │       Auto Scaling Group       │
-              │     EC2 Capacity Management   │
-              └───────────────────────────────┘
+- **VPC:** Isolated AWS networking environment
+- **Public Subnets:** Internet-facing infrastructure distributed across multiple Availability Zones
+- **Application Load Balancer:** Distributes incoming application traffic
+- **Auto Scaling Group:** Maintains application-server capacity
+- **EC2:** Hosts the QuickLoan application using Nginx and PHP/PHP-FPM
+- **Amazon RDS:** Managed MySQL database in the private layer
+- **Amazon S3:** Stores application image assets
+- **NAT Gateway:** Provides outbound connectivity for private resources
+- **Amazon CloudWatch:** Infrastructure monitoring and CPU alarms
+- **Amazon SNS:** Notifications associated with monitoring alarms
+- **Launch Template + Custom AMI:** Provides the configuration used for Auto Scaling instances
 ```
 
 ---
+
 
 # ☁️ AWS Services Used
 
