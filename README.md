@@ -32,7 +32,7 @@ Explore the complete project documentation covering the AWS architecture, VPC ne
 
 📄 **[View Complete AWS Project Documentation](QuickLoan_AWS_Cloud_Portfolio.pdf)**
 
-# 🏗️ AWS Architecture
+
 
 
 ## 🏗️ AWS Architecture
